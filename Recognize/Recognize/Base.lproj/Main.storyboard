@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OLT-0W-CQF">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Recognize" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Ke-u3-BWM">
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="1Ke-u3-BWM" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="A4i-zC-kvW"/>
+                            <constraint firstItem="1Ke-u3-BWM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="A8e-Me-HYT"/>
+                            <constraint firstItem="1Ke-u3-BWM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="IWf-vv-o4n"/>
+                            <constraint firstItem="1Ke-u3-BWM" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="buM-Gs-nGE"/>
+                            <constraint firstItem="1Ke-u3-BWM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="l2f-1i-655"/>
+                            <constraint firstItem="1Ke-u3-BWM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="leH-e2-qsS"/>
+                            <constraint firstItem="1Ke-u3-BWM" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ml3-Ja-Ctv"/>
+                            <constraint firstItem="1Ke-u3-BWM" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="y5p-iX-rkJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="L8j-fJ-2df">
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="fWA-fJ-OPg">
+                            <connections>
+                                <action selector="cameraTouched:" destination="BYZ-38-t0r" id="eHt-LM-RWW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="imageView" destination="1Ke-u3-BWM" id="4J4-Qz-dB4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1215.2" y="-570.76461769115451"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="CFc-re-3JB">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OLT-0W-CQF" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Uuv-yl-Ac4">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="lXc-DV-mEW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4nO-VG-eeW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="277.60000000000002" y="-570.76461769115451"/>
+        </scene>
+    </scenes>
+</document>
