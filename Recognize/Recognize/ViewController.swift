@@ -24,6 +24,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
+        //If the data can be downcast into an UIImage datatype than
        if let userPickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage{
             imageView.image = userPickedImage
         
