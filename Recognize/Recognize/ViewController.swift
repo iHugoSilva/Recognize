@@ -144,7 +144,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         realWorldLabel.firstMaterial?.isDoubleSided = true
         // bubble.flatness // setting this too low can cause crashes.
         realWorldLabel.chamferRadius = CGFloat(textDepth)
-        // Text Size -> Adding the extension at line '254' solved the big text problem
+        // Text Size -> Adding the extension at line '255' solved the big text problem
         var font = UIFont(name: "Futura", size: 0.20)
         font = font?.withTraits(traits: .traitBold)
         realWorldLabel.font = font
