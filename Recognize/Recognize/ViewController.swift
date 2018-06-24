@@ -9,8 +9,8 @@
 import UIKit
 import SceneKit
 import ARKit
-
 import Vision
+import CoreML
 
 class ViewController: UIViewController, ARSCNViewDelegate {
     
@@ -87,13 +87,13 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Release any cached data, images, etc that aren't in use.
     }
     
-    // ARSCNViewDelegate
-    
-    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
-        DispatchQueue.main.async {
-            // Do any desired updates to SceneKit here.
-        }
-    }
+//    // ARSCNViewDelegate
+//
+//    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+//        DispatchQueue.main.async {
+//            // Do any desired updates to SceneKit here.
+//        }
+//    }
     
     // Status Bar: Hide
     override var prefersStatusBarHidden : Bool {
@@ -102,14 +102,16 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     // Interaction
     
-    @objc func handleTap(gestureRecognize: UITapGestureRecognizer) {
+    @objc func handleTap(gestureRecognize: UITapGestureRecognizer)
+    {
         // HIT TEST : REAL WORLD
         // Get Screen Centre
         let screenCentre : CGPoint = CGPoint(x: self.sceneView.bounds.midX, y: self.sceneView.bounds.midY)
         
-        let arHitTestResults : [ARHitTestResult] = sceneView.hitTest(screenCentre, types: [.featurePoint]) // Alternatively, we could use '.existingPlaneUsingExtent' for more grounded hit-test-points.
+        let arHitTestResults : [ARHitTestResult] = sceneView.hitTest(screenCentre, types: [.featurePoint])
         
-        if let closestResult = arHitTestResults.first {
+        if let closestResult = arHitTestResults.first
+        {
             // Get Coordinates of HitTest
             let transform : matrix_float4x4 = closestResult.worldTransform
             let worldCoord : SCNVector3 = SCNVector3Make(transform.columns.3.x, transform.columns.3.y, transform.columns.3.z)
@@ -127,8 +129,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Using 3D objects can overload the device and therefore make the app crash, so watch out for the size and thinkness of letters/objects.
         
         // TEXT CONSTRAINT
-        let billboardConstraint = SCNBillboardConstraint()
-        billboardConstraint.freeAxes = SCNBillboardAxis.Y
+        let billboardConstraint = SCNBillboardConstraint() // A constraint that orients a node to always point toward the current camera.
+        billboardConstraint.freeAxes = SCNBillboardAxis.Y //Parallel to the screen
         
         // TEXT
         let realWorldLabel = SCNText(string: text, extrusionDepth: CGFloat(textDepth))
