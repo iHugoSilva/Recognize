@@ -100,11 +100,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         return true
     }
     
-    // Interaction
     
     @objc func handleTap(gestureRecognize: UITapGestureRecognizer)
     {
-        // HIT TEST : REAL WORLD
         // Get Screen Centre
         let screenCentre : CGPoint = CGPoint(x: self.sceneView.bounds.midX, y: self.sceneView.bounds.midY)
         
@@ -142,7 +140,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         realWorldLabel.firstMaterial?.diffuse.contents = UIColor.blue
         realWorldLabel.firstMaterial?.specular.contents = UIColor.black
         realWorldLabel.firstMaterial?.isDoubleSided = true
-        // bubble.flatness // setting this too low can cause crashes.
         realWorldLabel.chamferRadius = CGFloat(textDepth)
         // Text Size -> Adding the extension at line '255' solved the big text problem
         var font = UIFont(name: "Futura", size: 0.20)
@@ -171,7 +168,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         return realWorldLabelNodeParent
     }
     
-    // MARK: - CoreML Vision Handling
     
     func loopCoreMLUpdate() {
         // Continuously run CoreML whenever it's ready.
@@ -218,7 +214,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             debugText += classifications
             self.debugArea.text = debugText
             // Store the latest prediction
-            var objectName:String = "…"
+            var objectName : String = "…"
             objectName = classifications.components(separatedBy: "-")[0]
             //The [0] denotes which string we want to return from the array by it's index
             objectName = objectName.components(separatedBy: ",")[0]
@@ -254,7 +250,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 }
 extension UIFont
 {
-    // Base on a suggestion from Stackoverflow: https://stackoverflow.com/questions/4713236/how-do-i-set-bold-and-italic-on-uilabel-of-iphone-ipad
+    // Based on a suggestion from Stackoverflow: https://stackoverflow.com/questions/4713236/how-do-i-set-bold-and-italic-on-uilabel-of-iphone-ipad
     func withTraits(traits:UIFontDescriptorSymbolicTraits...) -> UIFont
     {
         let descriptor = self.fontDescriptor.withSymbolicTraits(UIFontDescriptorSymbolicTraits(traits))
